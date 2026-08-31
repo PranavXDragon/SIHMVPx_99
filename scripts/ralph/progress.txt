@@ -1,0 +1,173 @@
+# Ralph Progress Log
+Started: 2026-08-31
+Project: MaterialSync AI — SIH 2026 Problem Statement 26099
+
+## Codebase Patterns
+- Framework: Next.js (App Router, JavaScript)
+- Styling: Tailwind CSS with industrial dark theme & glassmorphism
+- Components: Pure modular functional components in `src/components/`
+- Icons: `lucide-react`
+- Animation: `framer-motion` for smooth layout transitions & step progressions
+- Data Layer: `src/data/mockKnowledgeBase.js` and `src/services/materialEngine.js`
+
+## Key Files
+- `src/app/page.jsx` - Main dashboard & view router
+- `src/app/layout.jsx` - Root layout with fonts & metadata
+- `src/app/globals.css` - Custom design system tokens, glow effects, scrollbar styling
+- `src/data/mockKnowledgeBase.js` - Curated industrial dataset
+- `src/services/materialEngine.js` - Fuzzy search & standardization logic
+
+---
+
+## 2026-08-31 - US-001 - Design System & Theme Tokens
+- Configured Tailwind CSS with custom industrial palette (`background`, `surface`, `surface-card`, `primary`, `accent`)
+- Created `globals.css` with glassmorphic styles (`.glass-panel`, `.glow-border`, `.bg-grid-pattern`)
+- Created `layout.jsx` with Inter and JetBrains Mono Google fonts
+- **Learnings:**
+  - Standardized custom glassmorphism styles in `globals.css` allows high-reusability across all upcoming components
+  - `@/*` path alias in `jsconfig.json` streamlines imports cleanly across the project
+
+---
+
+## 2026-08-31 - US-002 - Industrial Mock Knowledge Base & Dataset
+- Built `src/data/mockKnowledgeBase.js` with multi-organization records (Company A, B, C, D)
+- Created rich technical fingerprints for Bearings (6205 ZZ/2RS), Gate & Ball Valves, Bolts, and Power Cables
+- Integrated predefined ambiguous search queries with dynamic questions for the Material Detective feature
+- **Learnings:**
+  - Providing category-specific attribute templates prevents rigid schemas and accurately simulates real-world industrial ERP catalogs
+
+---
+
+## 2026-08-31 - US-003 - AI Standardization & Fuzzy Matching Engine
+- Implemented `src/services/materialEngine.js`
+- Built query normalization, multi-parameter fuzzy search, and ambiguity detection
+- Built side-by-side comparison engine computing exact, equivalent, and divergent attributes
+- **Learnings:**
+  - Separating ambiguity detection from standard search allows early interception for incomplete queries before executing expensive graph traversals
+
+---
+
+## 2026-08-31 - US-004 - Navbar & Header Navigation
+- Built `src/components/Navbar.jsx`
+- Added responsive desktop and mobile navigation tabs, problem statement badges, and status indicator
+- **Learnings:**
+  - Keeping a direct "Validate & Teach" CTA in the header highlights the human-in-the-loop USP during live hackathon demos
+
+---
+
+## 2026-08-31 - US-005 - Smart Search & Interactive Examples
+- Built `src/components/SearchBar.jsx` with prominent glowing border, clear button, and category pills
+- Embedded instant one-click test queries (`DEMO_SAMPLE_QUERIES`) for immediate evaluator interaction
+- **Learnings:**
+  - One-click sample query chips dramatically increase ease of demoing multiple real-world scenarios during short presentation slots
+
+---
+
+## 2026-08-31 - US-006 - Real-time AI Processing Pipeline View
+- Built `src/components/AIProcessingOverlay.jsx`
+- Added dynamic stage-by-stage diagnostic animation showcasing tokenization, synonym normalization, and taxonomy matching
+- **Learnings:**
+  - Exposing the AI's internal pipeline steps removes the "black box" concern for hackathon judges and enterprise engineers
+
+---
+
+## 2026-08-31 - US-007 - Material Profile & Technical Fingerprint View
+- Built `src/components/MaterialProfileView.jsx`
+- Rendered normalized category-specific technical specifications (Bearings, Valves, Fasteners, Cables)
+- Added common MaterialSync ID (`MSI-BRG-000123`) copy action and representative image with disclaimer badge
+- **Learnings:**
+  - Clearly labeling images as "representative standard" rather than "exact item" builds user trust and avoids confusion with manufacturer variations
+
+---
+
+## 2026-08-31 - US-008 - Cross-Organization Mapping & Visual Identity Graph
+- Built `src/components/CrossCompanyGraph.jsx`
+- Visualized multi-enterprise node topology connecting Company A, B, C, D to the unified common identity
+- Provided registry table with one-click code copying and relationship tiers
+- **Learnings:**
+  - Demonstrating that existing company codes don't need to be replaced—just mapped—resolves the biggest enterprise adoption obstacle
+
+---
+
+## 2026-08-31 - US-009 - Explainable AI & Match Evidence Module
+- Built `src/components/MatchEvidenceCard.jsx`
+- Designed 4-tier relationship matrix (Exact Identity 🟢, Standard Equivalent 🔵, Possible Equivalent 🟡, Related Variant ⚪)
+- Provided auditable bulleted verification proofs
+- **Learnings:**
+  - Explainable reasoning transforms the AI from a black-box suggestion into an engineering-grade compliance tool
+
+---
+
+## 2026-08-31 - US-010 - Material Detective (Ambiguity / Incomplete Spec Resolver)
+- Built `src/components/MaterialDetectiveModal.jsx`
+- Intercepted incomplete searches like "VALVE SS 2 INCH" with dynamic attribute prompts
+- Allowed one-click resolution straight to standard material profile
+- **Learnings:**
+  - Asking minimum necessary clarifying questions is far superior to guessing or returning zero results
+
+---
+
+## 2026-08-31 - US-011 - Side-by-Side Material Comparison Tool
+- Built `src/components/CompareView.jsx`
+- Added interactive comparison selectors with quick test presets (Bearings, Valves)
+- Rendered specification diff table with match categorization (Exact, Equivalent, Divergent)
+- **Learnings:**
+  - Direct side-by-side comparison provides judges with instant clarity on how the AI computes equivalence percentages
+
+---
+
+## 2026-08-31 - US-012 - Category Taxonomy Explorer
+- Built `src/components/CategoryExplorerView.jsx`
+- Displayed category and subcategory tree with required technical attributes and standard naming formulas
+- Incorporated approved synonym mappings (e.g. 2Z ↔ ZZ, SS ↔ Stainless Steel 316)
+- **Learnings:**
+  - Establishing explicit naming templates and mandatory attributes ensures deterministic outputs across disparate ERP inputs
+
+---
+
+## 2026-08-31 - US-013 - Teach MaterialSync & Self-Evolving Feedback
+- Built `src/components/TeachMaterialModal.jsx`
+- Allowed engineers to confirm or correct AI predictions and register approved equivalent synonyms in the knowledge base
+- **Learnings:**
+  - "Approve Once, Improve Future Matches Everywhere" creates a realistic self-evolving system without requiring complete model fine-tuning per search
+
+---
+
+## 2026-08-31 - US-014 - App Integration, Layout & Polish
+- Connected all views in `src/app/page.jsx`
+- Verified complete demo flow (Search -> Diagnostic Pipeline -> Standard Profile -> Identity Graph -> Explainable Evidence -> Ambiguity Resolver -> Side-by-Side Comparator -> Taxonomy Browser -> Knowledge Training)
+- Successfully verified `npm run build` with zero errors
+- **Learnings:**
+  - Building modular components with shared state in Next.js enables instantaneous tab switches and seamless prototype demonstrations
+
+
+---
+
+## 2026-08-31 - US-015 through US-027 - UMIP NMI Theme Redesign (Batch)
+### Files Changed
+- tailwind.config.js (NMI light theme palette)
+- src/app/globals.css (light theme, chat bubbles, badges, tables)
+- src/components/layout/Sidebar.jsx (NMI sidebar with history/nav/user profile)
+- src/components/layout/AppLayout.jsx (responsive shell with top bar)
+- src/app/layout.jsx (AppLayout wrapper)
+- src/components/chat/ChatMessages.jsx (TypingIndicator, MessageBubble, ChatThread)
+- src/components/chat/ChatInput.jsx (mic/send toggle, auto-resize textarea)
+- src/components/cards/MaterialResultCard.jsx (3-panel NMI result card matching reference image)
+- src/data/mockKnowledgeBase.js (UMC codes, CPSE companies, dashboard stats, review queue)
+- src/services/materialEngine.js (updated for new data structure)
+- src/app/page.jsx (chat interface with greeting, thread, typing indicator)
+- src/app/dashboard/page.jsx (stats tiles, search, activity table)
+- src/app/search/page.jsx (filters, UMC result cards, company tables)
+- src/app/materials/page.jsx (UMC index listing)
+- src/app/materials/[umc]/page.jsx (Material DNA, Critical Attributes, company table)
+- src/app/upload/page.jsx (company selector, drop zone, column mapper, 7-stage pipeline)
+- src/app/standardization/page.jsx (flow viz, batch summary, records table)
+- src/app/duplicates/page.jsx (group cards with node topology)
+- src/app/review/page.jsx (review cards with Approve/Reject/Create actions)
+- src/app/companies/page.jsx (CPSE grid table)
+- src/app/companies/[id]/page.jsx (company material catalog)
+
+### Learnings
+- The MaterialResultCard 3-panel layout (Equivalent Materials | Technical Attributes | Image) with stat tiles is the key visual deliverable matching the NMI reference image
+- Using Next.js App Router use(params) for dynamic routes is required in Next.js 15 with async params
+- Build verified: 12 routes, 0 errors, exit code 0

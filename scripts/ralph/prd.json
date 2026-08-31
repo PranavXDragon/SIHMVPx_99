@@ -1,0 +1,338 @@
+﻿{
+  "branchName": "feature/materialsync-core",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Design System & Theme Tokens",
+      "acceptanceCriteria": [
+        "Configure Tailwind theme with dark industrial aesthetic, glassmorphism, glowing badges",
+        "Set up typography with Inter and JetBrains Mono",
+        "Create global CSS variables and base styles in src/app/globals.css"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": "Implemented globals.css, layout.jsx, tailwind.config.js, jsconfig.json"
+    },
+    {
+      "id": "US-002",
+      "title": "Industrial Mock Knowledge Base & Dataset",
+      "acceptanceCriteria": [
+        "Create comprehensive dataset covering Bearings, Valves, Fasteners, Cables, and Seals",
+        "Include multi-company records (Company A, B, C, D) with disparate codes and names",
+        "Include technical specs, dimensions, synonyms, and representative images"
+      ],
+      "priority": 2,
+      "passes": true,
+      "notes": "Created src/data/mockKnowledgeBase.js with rich industrial records and taxonomy"
+    },
+    {
+      "id": "US-003",
+      "title": "AI Standardization & Fuzzy Matching Engine",
+      "acceptanceCriteria": [
+        "Implement search parsing for raw names, codes, model numbers, and dimensions",
+        "Extract standardized technical fingerprints",
+        "Evaluate cross-company mappings and compute match confidence scores (Exact, Equivalent, Possible, Variant)",
+        "Detect incomplete queries and trigger ambiguous attribute questions"
+      ],
+      "priority": 3,
+      "passes": true,
+      "notes": "Implemented src/services/materialEngine.js with fuzzy search, ambiguity checker, comparison, and AI diagnostic step generator"
+    },
+    {
+      "id": "US-004",
+      "title": "Navbar & Header Navigation",
+      "acceptanceCriteria": [
+        "Build modern navbar with logo, tagline, SIH 26099 badge",
+        "Navigation tabs: Search, Compare, Categories, Knowledge Base",
+        "Active status indicator and quick actions"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Created src/components/Navbar.jsx with responsive tabs and live database status indicator"
+    },
+    {
+      "id": "US-005",
+      "title": "Smart Search & Interactive Examples",
+      "acceptanceCriteria": [
+        "Multi-parameter search input with autocomplete and clear button",
+        "Sample search chips (e.g. 'BRG SKF 6205 ZZ', 'VALVE SS 2 INCH', '25x52x15 Bearing')",
+        "Live typing suggestions and search history"
+      ],
+      "priority": 5,
+      "passes": true,
+      "notes": "Created src/components/SearchBar.jsx with glowing input and interactive demo query chips"
+    },
+    {
+      "id": "US-006",
+      "title": "Real-time AI Processing Pipeline View",
+      "acceptanceCriteria": [
+        "Animated diagnostic breakdown of AI stages (Parsing, Manufacturer Detect, Fingerprint Match, Taxonomy Lookup)",
+        "Smooth Framer Motion progress animations and step checkboxes",
+        "Transitions seamlessly into material profile"
+      ],
+      "priority": 6,
+      "passes": true,
+      "notes": "Created src/components/AIProcessingOverlay.jsx with live staged diagnostic feedback"
+    },
+    {
+      "id": "US-007",
+      "title": "Material Profile & Technical Fingerprint View",
+      "acceptanceCriteria": [
+        "Standardized name and common MaterialSync ID (e.g. MSI-BRG-000123)",
+        "High-res representative image with verification label",
+        "Category-aware technical spec table (Bearings, Valves, Fasteners, Cables)",
+        "Confidence score meter and validation status badges"
+      ],
+      "priority": 7,
+      "passes": true,
+      "notes": "Created src/components/MaterialProfileView.jsx with verified standard identity, specs fingerprint, and representative image"
+    },
+    {
+      "id": "US-008",
+      "title": "Cross-Organization Mapping & Visual Identity Graph",
+      "acceptanceCriteria": [
+        "Interactive table of organizations (Company A, B, C) with original codes & names",
+        "Visual node graph diagram connecting company nodes to the common standard identity",
+        "Filter and copy options for ERP cross-referencing"
+      ],
+      "priority": 8,
+      "passes": true,
+      "notes": "Created src/components/CrossCompanyGraph.jsx with interactive node topology and multi-enterprise mapping table"
+    },
+    {
+      "id": "US-009",
+      "title": "Explainable AI & Match Evidence Module",
+      "acceptanceCriteria": [
+        "Relationship classification badges: Exact Identity, Standard Equivalent, Possible Equivalent, Related Variant",
+        "Bulleted explainability proofs (dimensions matched, synonym applied, model match)",
+        "Confidence breakdown bar"
+      ],
+      "priority": 9,
+      "passes": true,
+      "notes": "Created src/components/MatchEvidenceCard.jsx with 4-tier relationship matrix and proof points"
+    },
+    {
+      "id": "US-010",
+      "title": "Material Detective (Ambiguity / Incomplete Spec Resolver)",
+      "acceptanceCriteria": [
+        "Triggers dynamic question dialog when search query lacks required attributes (e.g. Valve SS 2 Inch)",
+        "Interactive options (Gate Valve, Ball Valve, Globe Valve)",
+        "Instantly resolves to the refined standardized material profile"
+      ],
+      "priority": 10,
+      "passes": true,
+      "notes": "Created src/components/MaterialDetectiveModal.jsx for handling ambiguous inputs with dynamic questionnaire flow"
+    },
+    {
+      "id": "US-011",
+      "title": "Side-by-Side Material Comparison Tool",
+      "acceptanceCriteria": [
+        "Compare two raw codes/descriptions (e.g. BRG-001 vs MECH-9845)",
+        "Attribute-by-attribute diff matrix highlighting matches and equivalents",
+        "Overall similarity percentage and recommendation"
+      ],
+      "priority": 11,
+      "passes": true,
+      "notes": "Created src/components/CompareView.jsx with side-by-side diff table and score meter"
+    },
+    {
+      "id": "US-012",
+      "title": "Category Taxonomy Explorer",
+      "acceptanceCriteria": [
+        "Searchable multi-level category tree (Mechanical -> Bearings -> Deep Groove)",
+        "Attribute templates display (required attributes, standard unit, naming conventions)",
+        "Known synonyms and alias rules"
+      ],
+      "priority": 12,
+      "passes": true,
+      "notes": "Created src/components/CategoryExplorerView.jsx with interactive taxonomy tree, attribute contracts, and synonym dictionary"
+    },
+    {
+      "id": "US-013",
+      "title": "Teach MaterialSync & Self-Evolving Feedback",
+      "acceptanceCriteria": [
+        "Expert validation modal to approve or correct AI predictions",
+        "Live local storage update to knowledge base with toast notification",
+        "Immediate reflection in subsequent search results"
+      ],
+      "priority": 13,
+      "passes": true,
+      "notes": "Created src/components/TeachMaterialModal.jsx for human-in-the-loop expert validation and live synonym injection"
+    },
+    {
+      "id": "US-014",
+      "title": "App Integration, Layout & Polish",
+      "acceptanceCriteria": [
+        "Integrate all views in src/app/page.jsx with smooth tab transitions",
+        "Responsive design with mobile and desktop support",
+        "Build passes with zero errors (`npm run build` succeeds)"
+      ],
+      "priority": 14,
+      "passes": true,
+      "notes": "Verified build succeeded with zero errors (Route / 59.8 kB static bundle created)"
+    },
+    {
+      "id": "US-015",
+      "title": "NMI Light Theme Design System",
+      "acceptanceCriteria": [
+        "Replace dark industrial theme with NMI Assistant light theme (white bg, blue #2563EB primary)",
+        "Tailwind config updated with new palette tokens",
+        "globals.css updated with light variables, chat bubble styles, EXACT/PROBABLE/REVIEW/CONFLICT badges"
+      ],
+      "priority": 15,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-016",
+      "title": "Sidebar + AppLayout",
+      "acceptanceCriteria": [
+        "Left sidebar with NMI logo, + New Chat button, chat history list (Today/Yesterday)",
+        "User profile at bottom with settings icon",
+        "Responsive: collapses to hamburger on mobile",
+        "AppLayout.jsx wraps all pages"
+      ],
+      "priority": 16,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-017",
+      "title": "Chat Interface Main Page",
+      "acceptanceCriteria": [
+        "Greeting screen: 'Hello! How can I help you today?' with suggested queries",
+        "Message thread: user bubble right / AI bubble left with bot avatar",
+        "Typing indicator while AI processes",
+        "Bottom input bar with mic + attachment + send"
+      ],
+      "priority": 17,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-018",
+      "title": "Chat Message Components",
+      "acceptanceCriteria": [
+        "ChatThread.jsx renders message history",
+        "MessageBubble.jsx handles user and AI variants",
+        "TypingIndicator.jsx three-dot pulse animation",
+        "ChatInput.jsx with keyboard shortcut (Enter to send)"
+      ],
+      "priority": 18,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-019",
+      "title": "MaterialResultCard (NMI Style)",
+      "acceptanceCriteria": [
+        "Header: material name + EXACT badge + Common Material Code + View Details link",
+        "Three-panel layout: Equivalent Materials table | Technical Attributes | Image",
+        "Bottom stats: CPSEs count | Highest Match % | Total Demand | Procurement Opportunity",
+        "Feedback row: thumbs up/down, copy, refresh"
+      ],
+      "priority": 19,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-020",
+      "title": "Dashboard Page",
+      "acceptanceCriteria": [
+        "Stats tiles: Total Records, Universal Materials, Companies, Exact Mappings, Review Required, New UMCs",
+        "Universal search bar",
+        "Recent standardization activity table",
+        "Top duplicate groups preview"
+      ],
+      "priority": 20,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-021",
+      "title": "Universal Search Page",
+      "acceptanceCriteria": [
+        "Filter bar: Company, Category, Match Type, Status",
+        "UMC result card with connected companies table below",
+        "URL-synced query params"
+      ],
+      "priority": 21,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-022",
+      "title": "Universal Material Detail Page",
+      "acceptanceCriteria": [
+        "UMC header with ID, standard description, category, status badge, version",
+        "Material DNA attribute grid",
+        "Critical Attributes checklist",
+        "Connected Company Records table with match confidence"
+      ],
+      "priority": 22,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-023",
+      "title": "Upload Data Page",
+      "acceptanceCriteria": [
+        "Company selector dropdown",
+        "File drop zone for CSV/XLSX",
+        "Column mapping UI",
+        "7-stage standardization progress pipeline animation"
+      ],
+      "priority": 23,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-024",
+      "title": "Standardization Results Page",
+      "acceptanceCriteria": [
+        "Raw -> AI Standardized -> UMC match visualization",
+        "Batch summary tiles (Processed/Exact/Probable/Review/Conflict/New)",
+        "Drill-down table of individual records"
+      ],
+      "priority": 24,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-025",
+      "title": "Duplicate Explorer Page",
+      "acceptanceCriteria": [
+        "Node topology visualization of UMC groups",
+        "List filters: Category, Companies, Match type, Confidence",
+        "Duplicate group cards with summary stats"
+      ],
+      "priority": 25,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-026",
+      "title": "Review Queue Page",
+      "acceptanceCriteria": [
+        "Review cards: raw input, extracted attributes, candidate UMC, missing fields, AI confidence",
+        "Action buttons: Approve Mapping, Reject, Create New UMC",
+        "Queue count badge in sidebar"
+      ],
+      "priority": 26,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    },
+    {
+      "id": "US-027",
+      "title": "Companies Pages",
+      "acceptanceCriteria": [
+        "Companies list: Name, Records, Mapped, Unique Codes, UMCs connected, Pending Review",
+        "Company detail page with material catalog and UMC mapping list"
+      ],
+      "priority": 27,
+      "passes": true,
+      "notes": "Implemented as part of UMIP redesign batch"
+    }
+  ]
+}
+
