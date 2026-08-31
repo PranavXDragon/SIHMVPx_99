@@ -3,6 +3,7 @@
 import { Building2, Layers, CheckSquare, TrendingUp, Sparkles, ArrowUpRight, Database, ArrowUpRight as ArrowUp, ShieldCheck, Activity, ArrowRight, ExternalLink } from 'lucide-react';
 import { CPSE_LIST } from '../../data/mockData';
 import SpecularButton from '../SpecularButton';
+import CpseLogo from '../CpseLogo';
 
 const RICH_CPSE_DATA = [
   { id: 'CPCL', name: 'Chennai Petroleum Corporation Ltd.', color: '#0284C7', records: '18,420', matchRate: '98.2%', location: 'Chennai, TN', status: 'Live Sync' },
@@ -127,7 +128,7 @@ export default function DashboardView({ onNavigateSearch }) {
           </span>
         </div>
 
-        {/* Spacious 21st.dev Style CPSE Cards Grid */}
+        {/* Spacious 21st.dev Style CPSE Cards Grid with SVG Logos */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {RICH_CPSE_DATA.map((cpse) => (
             <div
@@ -141,19 +142,10 @@ export default function DashboardView({ onNavigateSearch }) {
                 style={{ backgroundColor: cpse.color }}
               />
 
-              {/* Card Header: Icon/Badge + Status */}
+              {/* Card Header: Real SVG Logo + Status */}
               <div className="flex items-center justify-between pt-1">
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-sm shadow-xs transition-transform duration-300 group-hover:scale-105"
-                    style={{
-                      color: cpse.color,
-                      backgroundColor: cpse.color + '18',
-                      border: `1px solid ${cpse.color}33`,
-                    }}
-                  >
-                    {cpse.id}
-                  </div>
+                <div className="flex items-center gap-3.5">
+                  <CpseLogo id={cpse.id} className="w-12 h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105" />
                   <div>
                     <h4 className="text-lg font-black text-slate-900 tracking-tight leading-none group-hover:text-indigo-600 transition-colors">
                       {cpse.id}
