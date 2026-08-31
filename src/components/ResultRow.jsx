@@ -1,7 +1,8 @@
 'use client';
 
-import { ChevronRight, MoreVertical, Sparkles, Building2 } from 'lucide-react';
+import { ChevronRight, MoreVertical, Sparkles } from 'lucide-react';
 import MatchScoreRing from './MatchScoreRing';
+import CpseLogo from './CpseLogo';
 
 export default function ResultRow({ material, onViewDetails }) {
   if (!material) return null;
@@ -81,16 +82,19 @@ export default function ResultRow({ material, onViewDetails }) {
         <div className="lg:w-64 bg-gradient-to-br from-slate-50/90 via-white to-slate-50/60 p-4 rounded-xl border border-slate-200/80 shadow-2xs group-hover:border-indigo-200/80 group-hover:shadow-xs transition-all duration-300 space-y-1.5 text-xs">
           <div className="flex justify-between items-center py-0.5">
             <span className="text-slate-400 font-bold uppercase text-[10px] tracking-wider">From CPSE</span>
-            <span
-              className="px-2.5 py-0.5 rounded-md text-xs font-black shadow-2xs border"
-              style={{
-                color: material.cpseColor || '#0284C7',
-                backgroundColor: (material.cpseColor || '#0284C7') + '12',
-                borderColor: (material.cpseColor || '#0284C7') + '33',
-              }}
-            >
-              {material.cpse}
-            </span>
+            <div className="flex items-center gap-1.5">
+              <CpseLogo id={material.cpse} className="w-5 h-5 flex-shrink-0" />
+              <span
+                className="px-2.5 py-0.5 rounded-md text-xs font-black shadow-2xs border"
+                style={{
+                  color: material.cpseColor || '#0284C7',
+                  backgroundColor: (material.cpseColor || '#0284C7') + '12',
+                  borderColor: (material.cpseColor || '#0284C7') + '33',
+                }}
+              >
+                {material.cpse}
+              </span>
+            </div>
           </div>
 
           <div className="flex justify-between items-center py-0.5">
